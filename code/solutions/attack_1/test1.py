@@ -1,9 +1,3 @@
-# Attack 1 - Brute-forcing
-
-In this attack I created a python file in order to execute a brute force attack where I will brute force a guessing on what jonas.dahl's password is. This guess is based upon the knowledge that the server reponds with how long it takes to process the given password. This will let the script know when a guessed character is correct, and move on to the next character of the script.
-
-The pyhton script created and used is the following:
-```python
 import requests
 import time
 import string
@@ -63,6 +57,3 @@ while response in answer:
 #For some unnown reasons this code could only find the first 13 characters so it wont print the Final Answer
 #Final Answer
 print(answer)
-```
-
-The same script is also located in this repository.

